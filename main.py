@@ -13,4 +13,8 @@ for row in dfin.iterrows():
                 dfout = dfout.append({'ID1':row[1]['ID'],'ID2':col[1]['ID'],'Distance':thedist},ignore_index=True)
 dfout = dfout.sort_values(by=['Distance'])
 print(dfout)
-	
+#Assign 5 frequencies to the 5 pairs with the biggest distance between them. Ignore pairs with an already assigned freq.
+for row in dfout.iterrows():
+    for freq in [1,2,3,4,5]:
+
+        
