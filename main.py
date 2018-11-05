@@ -11,6 +11,6 @@ for row in dfin.iterrows():
 	for col in dfin.iterrows():
                 thedist = dist(row[1]["Northing"],col[1]["Northing"],row[1]["Easting"],col[1]["Easting"])
                 dfout = dfout.append({'ID1':row[1]['ID'],'ID2':col[1]['ID'],'Distance':thedist},ignore_index=True)
-		print(thedist)
+dfout = dfout.sort_values(by=['Distance'])
 print(dfout)
 	
