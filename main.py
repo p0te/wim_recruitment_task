@@ -25,7 +25,7 @@ for index, row in dfin.iterrows():
     setfreq = 0
     for frequency in freqs:
         dftest = dfin #create a test dataframe to check options w.r.t objective function
-        dftest.set_value(index,'freq',frequency)
+        dftest.set_value(index,'freq',setfreq)
         print(dfin)
         obj = objective_func(dftest)
         if obj >= max:
