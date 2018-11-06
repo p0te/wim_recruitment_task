@@ -21,9 +21,9 @@ def objective_func(df):
     return(out)
 
 for index, row in dfin.iterrows():
-    max = 0
     setfreq = 0
     for freq in freqs:
+        max = 0
         dftest = dfin #create a test dataframe to check options w.r.t objective function
         dftest.set_value(index,'freq',setfreq)
         obj = objective_func(dftest)
