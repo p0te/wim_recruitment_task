@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+\begin{align*}
+Maximize &= \sum_{t=0}^{18}x_{ft} \sum_{s+1 = 1}^{19}x_{fs} \sum_{f=110}^{115}d_{ts} + \sum_{m=0}^{18}B\\
+with:&\\
+x_ft &: \text{1 if frequency f is assigned to t, 0 otherwise}\\
+x_ft &: \text{1 if frequency f is assigned to s, 0 otherwise}\\
+d_ts &: \text{Diagonal Distance between t and s}\\
+B &: \text{Bonus assigned to unique frequencies}
+\end{align*}
+
+\end{document}
