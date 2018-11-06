@@ -21,16 +21,17 @@ def objective_func(df):
     return(out)
 
 for index, row in dfin.iterrows():
+    max = 0
     setfreq = 0
-    for freq in freqs:
-        max = 0
+    for frequency in freqs:
         dftest = dfin #create a test dataframe to check options w.r.t objective function
-        dftest.set_value(index,'freq',setfreq)
+        dftest.set_value(index,'freq',frequency)
+        print(dfin)
         obj = objective_func(dftest)
         if obj >= max:
             print(obj)
             max = obj
-            setfreq = freq #this frequency will increase the objective function the most
+            setfreq = frequency #this frequency will increase the objective function the most
     dfin.set_value(index,'freq',setfreq)
 
 
