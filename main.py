@@ -5,35 +5,32 @@ def dist(x1,x2,y1,y2):
 #read CSV into dataframe
 dfin = pd.read_csv("input.csv")
 dfin['freq'] =0
-print(dfin)
 columns = ["ID1","ID2","Distance"]
-dfout = pd.DataFrame( columns = columns)
 freqs = [110,111,112,113,114,115]
-
+#Objective Function
 def objective_func(df):
     out = 0
     for freq in freqs:
         if not df.isin([freq]).any(axis=None):
-            out = out +1600
-        for row in df.iterrows():
-            for col in df.iterrows():
-                if row[1]['freq'] == freq:
-                    if col[1]['freq'] == freq:
-                        out = out + dist(row[1]["Northing"],col[1]["Northing"],row[1]["Easting"],col[1]["Easting"])
+            out = out +1600 #bonus assigned to towers with unique freqs, arbitrarily chose a volue bigger than the biggest distance
+        for index,row in df.iterrows():
+            for index,col in df.iterrows():
+                if row['freq'] == freq:
+                    if col['freq'] == freq:
+                        out = out + dist(row["Northing"],col["Northing"],row["Easting"],col["Easting"])
     return(out)
 
-#print("object:" + str(objective_func()))
 for index, row in dfin.iterrows():
     max = 0
     setfreq = 0
     for freq in freqs:
-        dftest = dfin 
+        dftest = dfin #create a test dataframe to check options w.r.t objective function
         dftest.set_value(index,'freq',setfreq)
         obj = objective_func(dftest)
         if obj >= max:
             print(obj)
             max = obj
-            setfreq = freq
+            setfreq = freq #this frequency will increase the objective function the most
     dfin.set_value(index,'freq',setfreq)
 
 
