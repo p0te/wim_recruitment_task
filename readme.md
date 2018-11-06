@@ -8,4 +8,4 @@ The first step was to import the data and getting a way to output the assignment
 # Objective Function
 The objective function adds the distance between any 2 towers with the same frequencies, and assigns a bonus to any towers with unique frequencies. The function is typed out in latex and rendered in PDF. It's in the repo
 # Greedy Algorithm
-
+The greedy algorithm is the was chosen because it's the simplest to implement. It involves no iteration. It simply uses the objective function to test the options when assigning each frequency, and assigning the frequency that would increase the output of the objective function the most
